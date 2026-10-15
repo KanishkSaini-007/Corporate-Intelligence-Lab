@@ -373,6 +373,7 @@ if(t.tagName==='A'&&t.getAttribute('href')&&t.getAttribute('href').startsWith('#
 document.addEventListener('change',e=>{if(e.target.id==='co'){go(null,e.target.value)}if(e.target.id==='mt'){st.metric=e.target.value;render()}if(e.target.id==='co2'){st.co2=e.target.value;render()}});
 document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){st.sim[k]=+e.target.value;simUpdate()}});
 $('nav').innerHTML=TABS.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join('');
+window.addEventListener('hashchange',()=>{parse();render()});
 parse();render();
 })();
 </script>
