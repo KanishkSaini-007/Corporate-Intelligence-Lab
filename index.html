@@ -120,7 +120,7 @@ dialog .in{padding:22px 24px;max-height:80vh;overflow:auto}
 const KEYS=Object.keys(DATA);
 const $=s=>document.querySelector(s);
 const st={co2:'MSFT',co:'AAPL',tab:'overview',view:'combo',stmt:'is',metric:'op',sim:{rev:0,dm:0,bb:0,refi:0}};
-const TABS=[['overview','Overview'],['financials','Financials'],['ratios','Ratio Analysis'],['compare','Peer Comparison'],['market','Market & Valuation'],['risk','Risk Models'],['whatif','What-If Lab'],['brief','Analyst Brief']];
+const TABS=[['overview','Overview'],['financials','Financials'],['ratios','Ratios'],['compare','Peers'],['market','Market'],['risk','Risk'],['whatif','What-If'],['brief','Brief']];
 const charts=[];
 function killCharts(){while(charts.length)charts.pop().destroy()}
 function mk(el,cfg){const c=new Chart(el,cfg);charts.push(c);return c}
