@@ -57,7 +57,7 @@ select{padding:8px 10px;border:1px solid #c9c4b3;border-radius:3px;background:#f
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
 th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:inherit}
-thead th{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ink);border-bottom:0}
+thead th:first-child{background:var(--ink)}thead th{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ink);border-bottom:0}
 tbody tr:nth-child(even){background:#f4f1e7}tbody td:first-child{background:var(--card)}tbody tr:nth-child(even) td:first-child{background:#f4f1e7}
 td.num{font-family:var(--mono);font-size:12.5px}tr.sec td{font-weight:600;background:#e9e5d6!important;color:#2d3a33}
 .scroll{overflow-x:auto}
@@ -93,7 +93,7 @@ dialog .in{padding:22px 24px;max-height:80vh;overflow:auto}
 .brief table th:first-child,.brief table td:first-child{position:static}
 .view{display:none}.view.on{display:block}
 @media(max-width:1000px){.dash{grid-template-columns:1fr}}
-@media(max-width:860px){.shell{display:block}
+@media(max-width:860px){.shell{display:block}.card{overflow-x:auto}
 aside.side{position:sticky;top:0;height:auto;width:auto;flex-direction:row;align-items:center;padding:8px 10px;gap:8px;overflow:hidden}
 .brand{border:0;margin:0;padding:0 6px 0 0}.brand .mark{margin:0;width:26px;height:26px}.brand b,.brand span{display:none}
 nav{flex-direction:row;overflow-x:auto;scrollbar-width:none;gap:2px}nav::-webkit-scrollbar{display:none}
