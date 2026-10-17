@@ -105,17 +105,17 @@ nav button{white-space:nowrap;padding:7px 10px;border-left:0;border-bottom:3px s
 </style></head>
 
 <body>
-<div class="shell"><aside class="side"><div class="brand"><div class="mark">CI</div><b>Corporate Intelligence Lab</b><span>Ratio analysis &amp; distress screening from 10-K filings</span></div><nav></nav><button class="ghost" id="about">About this project</button><div class="credit"><b>Kanishk Saini</b><br>Roll N099 &middot; MBA Tech<br>NMIMS Mumbai</div></aside>
+<div class="shell"><aside class="side"><div class="brand"><div class="mark">CI</div><b>Corporate Intelligence Lab</b><span>Ratio analysis &amp; distress screening from 10-K filings</span></div><nav></nav><button class="ghost" id="about">About this project</button><div class="credit"><b>Kanishk Saini</b></div></aside>
 <div class="content"><main class="wrap"><div id="view" class="view on"></div></main>
-<footer><div class="wrap">Educational coursework project. Not investment advice and not a credit rating. Data: company Form 10-K filings via SEC EDGAR. Built by Kanishk Saini, NMIMS Mumbai.</div></footer></div></div>
+<footer><div class="wrap">Educational coursework project. Not investment advice and not a credit rating. Data: company Form 10-K filings via SEC EDGAR. Built by Kanishk Saini.</div></footer></div></div>
 <dialog id="dlg"><div class="in">
 <h2 style="margin-top:0">About this project</h2>
-<p>I built this for my MBA Tech coursework to see how much of a company's financial health you can read from its 10-K using standard ratio analysis. It covers eleven US companies over five fiscal years each.</p>
+<p>I built this as a coursework project to see how much of a company's financial health you can read from its 10-K using standard ratio analysis. It covers eleven US companies over five fiscal years each.</p>
 <h3>What it does</h3>
 <ul class="t"><li>Pulls 19 line items per company from the SEC's XBRL financial data (revenue, assets, debt, cash flow and so on).</li><li>Calculates liquidity, profitability, leverage, efficiency and cash flow ratios, and shows the formula and the actual numbers behind each one.</li><li>Scores financial strength with the Altman Z''-score and an 8-test Piotroski-style checklist.</li><li>Lets you change revenue, margin and debt in the What-If Lab and see the Z'' score move.</li><li>Shows market price, market cap and valuation multiples (live where a free data feed is reachable, otherwise a saved snapshot).</li><li>Prints a one-page brief per company.</li></ul>
 <h3>Limits</h3>
 <ul class="t"><li>The Altman model is old and was built on manufacturers. I use the 1995 non-manufacturer version, but it can still misread asset-light companies. Treat it as a screening tool.</li><li>Debt means bonds, notes and commercial paper. Some companies report finance leases in the same line, and operating leases are left out.</li><li>Fiscal years end on different dates, so peer comparisons are not perfectly aligned.</li><li>The commentary is rule-based (fixed thresholds in the code). It is not a forecast.</li><li>Errors in data extraction are possible. Check the filing link before relying on a number.</li></ul>
-<p class="note">Kanishk Saini · Roll N099 · MBA Tech, NMIMS Mumbai. Educational project, not investment advice.</p>
+<p class="note">Kanishk Saini. Educational project, not investment advice.</p>
 <button class="ghost" data-close>Close</button></div></dialog>
 <script>/**
  * Skipped minification because the original files appears to be already minified.
@@ -368,7 +368,7 @@ const rk=id=>{const a=KEYS.map(k=>({k,v:mv(DATA[k],DATA[k].years.length-1,id)}))
 const zr=KEYS.map(k=>({k,z:Z(DATA[k],DATA[k].years.length-1).z})).sort((a,b)=>b.z-a.z).findIndex(x=>x.k===st.co)+1;
 const ids=['cur','quick','gross','op','net','roa','roe','l2a','d2e','icov','at','ccc','fcf','conv','rg'];
 return `<div class="row noprint" style="max-width:880px;margin:0 auto 12px"><div class="pick"><select id="co">${opts()}</select></div><button class="ghost" id="pr">Print / save as PDF</button></div>
-<div class="brief card"><h1>${c.name}: Financial Analysis Brief</h1><div class="meta">Fiscal year ${c.years[i]} (ended ${c.fyEnds[i]}) · ${c.sector} · Prepared ${date} · Corporate Intelligence Lab, Kanishk Saini (Roll N099)</div>
+<div class="brief card"><h1>${c.name}: Financial Analysis Brief</h1><div class="meta">Fiscal year ${c.years[i]} (ended ${c.fyEnds[i]}) · ${c.sector} · Prepared ${date} · Corporate Intelligence Lab, Kanishk Saini</div>
 <h3>Summary</h3><p>${c.name} reported revenue of ${money(g(c,'revenue',i))} and operating income of ${money(g(c,'operatingIncome',i))} (${F.pct(mv(c,i,'op'))} margin) in FY${c.years[i]}. Free cash flow was ${money(mv(c,i,'fcf'))}. Its Altman Z'' score is <b>${z.z.toFixed(2)} (${zn.t.toLowerCase()})</b>, ranking ${zr} of ${KEYS.length} in this lab's peer set, and it passes ${P.score} of 8 quality tests. ${c.desc}</p>
 <h3>Key ratios</h3><table><thead><tr><th>Ratio</th><th>FY${c.years[i-1]}</th><th>FY${c.years[i]}</th><th>Peer rank</th></tr></thead><tbody>${ids.map(id=>`<tr><td>${MID[id].name}</td><td class="num">${F[MID[id].fmt](mv(c,i-1,id))}</td><td class="num">${F[MID[id].fmt](mv(c,i,id))}</td><td class="num">${rk(id)}</td></tr>`).join('')}</tbody></table>
 <h3>Trend</h3><div class="chartbox s"><canvas id="ch1"></canvas></div>
