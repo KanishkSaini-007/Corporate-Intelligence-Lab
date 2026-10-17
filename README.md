@@ -1,6 +1,6 @@
 # Corporate Intelligence Lab
 
-A financial statement analysis tool I built for my MBA Tech coursework. Pick a company, read its ratios, compare it with peers, and stress-test how close it is to financial distress.
+A financial statement analysis tool I built as a coursework project. Pick a company, read its ratios, compare it with peers, and stress-test how close it is to financial distress.
 
 **Live:** https://kanishksaini-007.github.io/Corporate-Intelligence-Lab/
 
@@ -32,4 +32,4 @@ Plain HTML, CSS and JavaScript in one file. Chart.js is inlined so it works offl
 
 Pulled from `data.sec.gov` XBRL company facts (annual 10-K values). Filing links are in the app.
 
-Kanishk Saini, Roll N099, MBA Tech, NMIMS Mumbai
+Kanishk Saini
